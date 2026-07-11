@@ -1,6 +1,6 @@
 {
   "name": "@fairground-co/lp-theme",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Leadership Properties brand token VALUES for the fairGround token contract. Values only — no components, no licensed assets. 0.1.x values are draft-quality pending the refinement pass (issue #2).",
   "main": "./styles.css",
   "style": "./styles.css",
