@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   @fairground-co/lp-theme — Leadership Properties brand token VALUES (DRAFT)
+
+   Values extracted 2026-07-10 from LotPlanner (design-system Phase 1
+   follow-on, seeded per issue #1) and mapped onto core token contract
+   v0. Values marked [draft] had no source equivalent and are proposed —
+   refinement of every flagged value is tracked in ISSUE #2 and
+   docs/refinement-notes.md.
+
+   Brand character: "confident, not loud" — navy structure + teal
+   interaction on cool paper; Playfair Display headings over DM Sans
+   chrome with JetBrains Mono data; borders over shadows; navy tooltips.
+
+   Flagged for review:
+   • --accent = the brand teal #19aec3 (their active/link/selected hue).
+     White ink on a teal fill is below AA — LotPlanner itself uses teal
+     mostly for borders/links/icons, not large fills. Alternatives: use
+     teal-dark #128fa1 as the fill accent, or keep buttons navy.
+   • THE ENTIRE DARK BLOCK IS DRAFTED — LotPlanner has no dark mode
+     today. It follows the base system's surface-pops-dark pattern in a
+     navy-cast charcoal.
+   • Categorical slots 1–7 take the chart-contrast lot palette
+     (deepened set) + their indigo series fallback; 8–12 stay on the
+     neutral reference. Lot-type domain aliases (echelon/estate/…)
+     stay app-side mapped onto slots, incl. the shared-hex pairs that
+     differentiate by pattern.
+
+   Deliberate NON-overrides (adapt-to-the-base, DECISIONS #18):
+   space/radius/motion/density keep the contract geometry (LP's 8px
+   cards and 150ms timings adapt to the base scale).
+   ═══════════════════════════════════════════════════════════════════════ */
+
+[data-brand="lp"] {
+  color-scheme: light;
+
+  /* ── Surfaces & ink — cool paper, navy-cast ink ────────────────────── */
+  --bg:            #f4f6f9;
+  --surface:       #ffffff;
+  --surface-2:     #f4f6f9;   /* inset/input/alt-row — the app-bg tone    */
+  --surface-3:     #e9edf3;   /* [draft] deepest inset                    */
+  --text:          #1a2740;
+  --text-muted:    #5a6b82;
+  --text-faint:    #9aaabb;
+  --border:        #dde3ec;
+  --border-strong: #c3cddc;   /* [draft]                                  */
+  --overlay:       rgba(244, 246, 249, 0.85);  /* [draft]                 */
+  --scrim:         rgba(25, 49, 91, 0.65);     /* the tour overlay navy   */
+
+  /* ── Working pair — teal interacts, navy commits ───────────────────── */
+  --accent:    #19aec3;  /* teal — active states, links, selection        */
+  --accent-2:  #19315b;  /* navy — the structural brand hue               */
+  --on-accent: #ffffff;  /* review: below AA on raw teal fills            */
+  --match:     #2a4a7f;  /* [draft] navy-light — distinct from selection  */
+  --commit:    #19315b;  /* [draft] definitive acts wear the navy         */
+
+  /* ── Capability scope ─────────────────────────────────────────────────
+     [draft] LotPlanner has no capability-color pattern; mapped by
+     meaning: view ops = teal (their link/filter hue), guest = amber,
+     edit = navy (commit family).                                         */
+  --scope-view:  #128fa1;   /* teal-dark — legible as ink/marks           */
+  --scope-guest: #e8a030;
+  --scope-edit:  #19315b;
+
+  /* ── Status — inventory-health semantics ───────────────────────────── */
+  --status-success: #2e9e6b;
+  --status-warning: #e8a030;
+  --status-caution: #cfae2f;  /* [draft] golden, from the caution badge family */
+  --status-danger:  #d94f4f;
+  --status-info:    #128fa1;  /* teal family (their info = teal), ink-tuned */
+
+  /* ── Categorical — chart-contrast lot palette on slots 1–7 ─────────── */
+  --cat-1: #f07b7c;   /* red    (echelon)            */
+  --cat-2: #f5a032;   /* orange (small)              */
+  --cat-3: #f0d84a;   /* yellow (standard)           */
+  --cat-4: #72c46e;   /* green  (large)              */
+  --cat-5: #6366f1;   /* indigo (builder series 4th) */
+  --cat-6: #c46abf;   /* purple (multiunit)          */
+  --cat-7: #5bc4e0;   /* sky    (estate/garden)      */
+  /* 8–12 remain the neutral reference slots                              */
+
+  /* ── Elevation — borders preferred; shadows minimal by design ──────── */
+  --shadow-card: none;
+
+  /* ── Typography — the LP triad (families by NAME; files/loading are
+        the app's or lp-brand-assets' concern) ─────────────────────────── */
+  --font-ui:        "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display:   "Playfair Display", Georgia, serif;
+  --font-editorial: "Playfair Display", Georgia, serif;
+  --font-mono:      "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  /* ── Dataviz — navy tooltips, cool grid ────────────────────────────── */
+  --viz-grid:        #e2e8f0;
+  --viz-tooltip-bg:  #19315b;
+  --viz-tooltip-ink: #ffffff;
+}
+
+[data-brand="lp"][data-theme="dark"] {
+  color-scheme: dark;
+
+  /* ═ ENTIRELY [draft] — LotPlanner ships light-only today. Navy-cast
+     charcoal following the base system's surface-pops-dark pattern.     */
+  --bg:            #182131;
+  --surface:       #0d131d;
+  --surface-2:     #202b3d;
+  --surface-3:     #283549;
+  --text:          #e8ecf3;
+  --text-muted:    #8fa0b8;
+  --text-faint:    #5c6c85;
+  --border:        #35435c;
+  --border-strong: #48597a;
+  --overlay:       rgba(6, 10, 17, 0.78);
+  --scrim:         color-mix(in srgb, var(--bg) 78%, transparent);
+
+  --accent:    #2fc2d8;   /* lifted teal                                  */
+  --accent-2:  #9db8e8;   /* lifted navy                                  */
+  --on-accent: #06222a;   /* dark ink on light teal                       */
+  --match:     #9db8e8;
+  --commit:    #6f8fc9;
+
+  --scope-view:  #2fc2d8;
+  --scope-guest: #f0b25a;
+  --scope-edit:  #6f8fc9;
+
+  --status-success: #46b985;
+  --status-warning: #f0b25a;
+  --status-caution: #ddc258;
+  --status-danger:  #e57373;
+  --status-info:    #2fc2d8;
+
+  --viz-grid:        #2c3a52;
+  --viz-tooltip-bg:  #283549;
+  --viz-tooltip-ink: #e8ecf3;
+}
